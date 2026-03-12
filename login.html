@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Login | Premium Access | IPO360</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="IPO 360 developed by Jay Innovations" />
+    <meta name="keywords" content="IPO 360, Jay Innovations">
+    
+    <meta name="csrf-token" content="O0rGBbCp9vClvElYcDWBUBU2XHmpKhCE9nOZRzZ1">
+    <link rel="icon" type="image/x-icon" href="https://www.ipo360.in/assets/user/img/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: '#0f172a', // Deep Corporate Blue
+                        brand: { DEFAULT: '#0d6efd', 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' },
+                        slate: { 850: '#1e293b', 900: '#0f172a' }
+                    },
+                    animation: {
+                        'shimmer': 'shimmer 2s infinite',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' }
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0.6 },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #F8FAFC; }
+        
+        /* jQuery Validation Error Styles */
+        .error { color: #ef4444; font-size: 0.75rem; margin-top: 0.35rem; display: block; font-weight: 600; animation: slideDown 0.2s ease-out; }
+        input.error { border-color: #fca5a5 !important; background-color: #fef2f2 !important; box-shadow: 0 0 0 3px rgba(254, 226, 226, 0.5) !important; }
+        
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Input autofill override */
+        input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px white inset !important; }
+    </style>
+</head>
+<body class="font-sans text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-700 min-h-screen flex flex-col lg:flex-row overflow-x-hidden">
+
+    <div class="order-1 lg:order-2 w-full lg:w-[55%] xl:w-[50%] flex flex-col justify-center items-center p-6 sm:p-12 relative bg-white min-h-screen lg:min-h-0 z-10 shadow-2xl lg:shadow-none">
+        
+        <div class="lg:hidden w-full flex justify-center mb-8">
+            <a href="https://www.ipo360.in">
+                <img src="https://www.ipo360.in/assets/user/img/logo.png" alt="IPO360" class="h-10 w-auto">
+            </a>
+        </div>
+
+        <div class="w-full max-w-[420px]">
+            
+            <div class="mb-8 text-center lg:text-left">
+                <h1 class="text-3xl font-black text-primary tracking-tight mb-2">Welcome back</h1>
+                <p class="text-slate-500 font-medium text-[15px]">Please enter your details to sign in.</p>
+            </div>
+
+            <a href="https://www.ipo360.in/api/auth/google/redirect" class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white border border-slate-200 shadow-[0_2px_10px_rgba(0,0,0,0.03)] rounded-xl text-sm font-bold text-slate-700 hover:bg-slate-50 hover:shadow-md hover:border-slate-300 transition-all duration-200 mb-6 group">
+                <img src="https://www.ipo360.in/assets/user/img/google.svg" alt="Google" class="w-5 h-5 group-hover:scale-110 transition-transform">
+                Sign in with Google
+            </a>
+
+            <div class="flex items-center justify-center mb-6">
+                <div class="border-t border-slate-200 w-full"></div>
+                <span class="bg-white px-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Or</span>
+                <div class="border-t border-slate-200 w-full"></div>
+            </div>
+
+            <form id="formAuthentication" method="POST" action="https://www.ipo360.in/login" class="space-y-5">
+                <input type="hidden" name="_token" value="O0rGBbCp9vClvElYcDWBUBU2XHmpKhCE9nOZRzZ1" autocomplete="off">
+                
+                <div>
+                    <label for="email" class="block text-xs font-bold text-slate-700 mb-1.5 ml-1">Email Address</label>
+                    <div class="relative group/input">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fas fa-envelope text-slate-400 group-focus-within/input:text-brand transition-colors"></i>
+                        </div>
+                        <input type="email" id="email" name="email" placeholder="name@example.com" autofocus
+                            class="block w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-[15px] font-medium text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-xs font-bold text-slate-700 mb-1.5 ml-1">Password</label>
+                    <div class="relative group/input">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-slate-400 group-focus-within/input:text-brand transition-colors"></i>
+                        </div>
+                        <input type="password" id="password" name="password" placeholder="••••••••••••" data-error="#password-error"
+                            class="block w-full pl-11 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-xl text-[15px] font-medium text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all">
+                        
+                        <div class="absolute inset-y-0 right-0 pr-4 flex items-center cursor-pointer text-slate-400 hover:text-brand transition-colors" onclick="togglePassword()">
+                            <i id="toggleIcon" class="fas fa-eye-slash text-[15px]"></i>
+                        </div>
+                    </div>
+                    <div id="password-error"></div>
+                </div>
+
+                <div class="flex items-center justify-between mt-2">
+                    <div class="flex items-center">
+                        <input id="remember-me" name="remember" type="checkbox" 
+                            class="h-4 w-4 text-brand border-slate-300 rounded focus:ring-brand focus:ring-offset-0 cursor-pointer transition-colors">
+                        <label for="remember-me" class="ml-2.5 block text-sm font-semibold text-slate-600 cursor-pointer select-none">
+                            Remember for 30 days
+                        </label>
+                    </div>
+                    <a href="https://www.ipo360.in/forgot-password" class="text-sm font-bold text-brand hover:text-brand-700 transition-colors">
+                        Forgot password?
+                    </a>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" class="w-full flex justify-center items-center gap-2 py-3.5 px-4 rounded-xl shadow-[0_8px_20px_rgba(13,110,253,0.25)] text-[15px] font-bold text-white bg-brand hover:bg-brand-600 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-brand/30 transition-all duration-300 relative overflow-hidden group/btn">
+                        <div class="absolute inset-0 -translate-x-full group-hover/btn:animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+                        <span class="relative">Sign In</span>
+                    </button>
+                </div>
+            </form>
+
+            <p class="mt-8 text-center text-[15px] text-slate-500 font-medium">
+                Don't have an account?
+                <a href="https://www.ipo360.in/register" class="font-bold text-primary hover:text-brand transition-colors ml-1 border-b border-transparent hover:border-brand pb-0.5">
+                    Sign up
+                </a>
+            </p>
+
+        </div>
+    </div>
+
+    <div class="order-2 lg:order-1 w-full lg:w-[45%] xl:w-[50%] bg-primary relative overflow-hidden flex flex-col justify-between p-8 lg:p-12 z-0 min-h-screen lg:min-h-0 border-t-4 border-brand lg:border-none">
+        
+        <div class="absolute top-[0%] left-[-10%] w-[400px] h-[400px] rounded-full bg-brand-600/30 blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-teal-500/20 blur-[100px] pointer-events-none"></div>
+        
+        <div class="relative z-20 hidden lg:block">
+            <a href="https://www.ipo360.in">
+                <img src="https://www.ipo360.in/assets/user/img/logo.png" alt="IPO360" class="h-10 filter brightness-0 invert" onerror="this.src='https://via.placeholder.com/150x50?text=IPO360'">
+            </a>
+        </div>
+
+        <div class="relative z-20 w-full max-w-lg mx-auto mt-8 lg:mt-0 flex-grow flex flex-col justify-center">
+            
+            <h2 class="text-4xl sm:text-5xl xl:text-6xl font-black text-white leading-[1.15] mb-8 tracking-tight">
+                Dominate the <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-300">IPO Game.</span>
+            </h2>
+
+            <div class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-500 to-teal-400"></div>
+                
+                <h3 class="text-xl sm:text-2xl font-bold text-white mb-2 tracking-tight">Join the Inner Circle</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Get real-time insights, GMP Alerts, Subscription Updates delivered straight to you.</p>
+
+                <a href="https://chat.whatsapp.com/KYewBHJ8J2mDHb16jhfa6l" target="_blank" class="relative group flex items-center justify-center gap-3 w-full px-6 py-3.5 bg-gradient-to-r from-[#25D366] to-[#128C7E] rounded-xl text-white font-bold text-sm sm:text-base shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] hover:-translate-y-1 transition-all duration-300">
+                    <i class="fab fa-whatsapp text-2xl group-hover:animate-pulse-glow"></i>
+                    Get Daily IPO Updates
+                </a>
+
+                <div class="mt-6 flex justify-center gap-4 sm:gap-6">
+                    <a href="https://x.com/IPO360VE" target="_blank" class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-slate-300 hover:bg-white/20 hover:text-white hover:-translate-y-1 hover:shadow-[0_5px_15px_rgba(255,255,255,0.1)] transition-all duration-300 group" title="Follow us on X">
+                        <i class="fab fa-x-twitter text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    
+                    <a href="https://www.youtube.com/@ipo360yt?si=RXXxAznvyr7sEDkU" target="_blank" class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-slate-300 hover:bg-[#FF0000]/20 hover:text-[#FF0000] hover:border-[#FF0000]/50 hover:-translate-y-1 hover:shadow-[0_5px_15px_rgba(255,0,0,0.2)] transition-all duration-300 group" title="Subscribe on YouTube">
+                        <i class="fab fa-youtube text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/ipo360.in?igsh=MWRnY2k1N2ltenJheA==" target="_blank" class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-slate-300 hover:bg-[#E1306C]/20 hover:text-[#E1306C] hover:border-[#E1306C]/50 hover:-translate-y-1 hover:shadow-[0_5px_15px_rgba(225,48,108,0.2)] transition-all duration-300 group" title="Follow us on Instagram">
+                        <i class="fab fa-instagram text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    
+                    <a href="https://www.facebook.com/people/IPO360in/61583385234833/" target="_blank" class="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-slate-300 hover:bg-[#1877F2]/20 hover:text-[#1877F2] hover:border-[#1877F2]/50 hover:-translate-y-1 hover:shadow-[0_5px_15px_rgba(24,119,242,0.2)] transition-all duration-300 group" title="Follow us on Facebook">
+                        <i class="fab fa-facebook-f text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-20 text-slate-500 text-sm font-medium mt-12 text-center lg:text-left">
+            &copy; 2026 Value Edge Advisors. All rights reserved.
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.ipo360.in/assets/js/jquery-validation/validation.min.js"></script>
+    <script src="https://www.ipo360.in/assets/js/jquery-validation/additional-methods.min.js"></script>
+
+    <script>
+        // Password Visibility Toggle
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            const toggleIcon = document.getElementById("toggleIcon");
+            
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+                toggleIcon.classList.add("text-brand");
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+                toggleIcon.classList.remove("text-brand");
+            }
+        }
+
+        // Form Validation
+        $(document).ready(function() {
+            $("#formAuthentication").validate({
+                rules: {
+                    email: { required: true, email: true },
+                    password: { required: true }
+                },
+                messages: {
+                    email: {
+                        required: "Please enter your email address.",
+                        email: "Please enter a valid email address."
+                    },
+                    password: {
+                        required: "Please enter your password."
+                    }
+                },
+                errorElement: "span",
+                errorPlacement: function (error, element) {
+                    var placement = $(element).data("error");
+                    if (placement) {
+                        $(placement).append(error);
+                    } else {
+                        error.insertAfter(element.parent());
+                    }
+                },
+                invalidHandler: function(event, validator) {
+                    var submitButton = $('#formAuthentication').find('button[type="submit"]');
+                    submitButton.prop("disabled", false);
+                    submitButton.html('<span class="relative">Sign In</span>');
+                },
+                submitHandler: function(form) {
+                    var submitButton = $(form).find('button[type="submit"]');
+                    submitButton.prop("disabled", true);
+                    submitButton.html(`<i class="fas fa-circle-notch fa-spin text-white text-lg relative"></i> <span class="relative ml-2">Signing in...</span>`);
+                    form.submit();
+                }
+            });
+        });
+
+        // Toaster Notification Function
+        function showToaster(message, icon, color, state) {
+            if ($(".bs-toast").length > 0) { $(".bs-toast").remove(); }
+            $("body").append(`
+                <div class="bs-toast fixed top-5 right-5 z-[100] bg-white border-l-4 border-${color}-500 shadow-[0_10px_40px_rgba(0,0,0,0.1)] rounded-xl p-4 max-w-sm flex items-start gap-3 transition-all duration-300" role="alert">
+                    <i class="fas ${icon} text-${color}-500 mt-0.5 text-lg"></i>
+                    <div>
+                        <h4 class="text-sm font-black text-slate-800 tracking-tight">${state}</h4>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">${message}</p>
+                    </div>
+                </div>
+            `);
+            removeToast();
+        }
+
+        function removeToast() {
+            const notificationToast = $('.bs-toast');
+            if (notificationToast.length) {
+                setTimeout(function() {
+                    notificationToast.addClass('opacity-0 translate-x-full');
+                    setTimeout(function() { notificationToast.remove(); }, 300);
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
